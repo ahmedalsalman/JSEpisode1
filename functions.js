@@ -5,7 +5,11 @@
  * - logs "Hello <name>" if there is a name
  */
 function greet(name) {
-  // Your code here
+  if (name) {
+    return console.log(`Hello ${name}`);
+  } else {
+    return console.log('Hello');
+  }
 }
 
 /**
@@ -14,7 +18,11 @@ function greet(name) {
  * - returns true if it's odd, false otherwise
  */
 function isOdd(n) {
-  // Your code here
+  if (n%2 !== 0) {
+    return true
+  }else {
+    return false
+  }
 }
 
 /**
@@ -29,7 +37,12 @@ function isOdd(n) {
  * Hint: you can solve this without writing any loops!
  */
 function oddsSmallerThan(n) {
-  // Your code here
+  if (n % 2 === 0){
+    return n/2
+  }
+  else {
+    return ((n/2)-0.5)
+  }
 }
 
 /**
@@ -43,7 +56,12 @@ function oddsSmallerThan(n) {
  * squareOrDouble(9) -> 81
  */
 function squareOrDouble(n) {
-  // Your code here
+    if (n % 2 !== 0){
+      return n * n
+    }else{
+      return n * 2
+    }
+
 }
 
 /**
@@ -64,8 +82,16 @@ function squareOrDouble(n) {
  */
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
-
-  // Your code here
+  let year = Number(birthDate.slice(0,4));
+  let month = Number(birthDate.slice(4,6));
+  let day = birthDate.slice(6,8);
+  let age = 0
+  if ((month) < (new Date().getMonth())){
+    age = (new Date().getFullYear())-year;
+  }else {
+    age = (new Date().getFullYear())-year-1;
+  }
+ return age
 }
 
 module.exports = {
